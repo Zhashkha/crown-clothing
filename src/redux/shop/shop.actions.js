@@ -10,7 +10,6 @@ export const fetchCollectionsStart = () => ({
 });
 
 export const fetchCollectionsStartAsync = () => {
-  // let unsubscribeFromSnapshot = null;
   return (dispatch) => {
     dispatch(fetchCollectionsStart());
     const collectionRef = firestore.collection("collections");
@@ -22,12 +21,6 @@ export const fetchCollectionsStartAsync = () => {
         dispatch(fetchCollectionSuccess(collectionsMap));
       })
       .catch((error) => dispatch(fetchCollectionFailure(error.message)));
-    // if (!unsubscribeFromSnapshot) {
-    //   unsubscribeFromSnapshot = collectionRef.onSnapshot(async (snapshot) => {
-    //     const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-    //     dispatch(fetchCollectionSuccess(collectionsMap));
-    //   });
-    // }
   };
 };
 
