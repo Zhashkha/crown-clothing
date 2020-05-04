@@ -50,3 +50,7 @@ export const signupFailure = (error) => ({
   type: UserActionTypes.SIGNUP_FAILURE,
   payload: error
 });
+
+export const paymentSuccess = () => ({
+  type: UserActionTypes.PAYMENT_SUCCESS
+});
