@@ -6,9 +6,9 @@ import {
   BackgroundImage,
   CollectionFooterContainer,
   NameContainer,
-  PriceContainer,
+  PriceContainer
 } from "./collection-item.styles";
-import CustomButton from "../custom-button/custom-button.component";
+import { AddButton } from "./collection-item.styles";
 import { addItem } from "../../redux/cart/cart.actions";
 
 const CollectionItem = ({ item, addItemDisProp }) => {
@@ -21,15 +21,15 @@ const CollectionItem = ({ item, addItemDisProp }) => {
         <NameContainer>{name}</NameContainer>
         <PriceContainer>${price}</PriceContainer>
       </CollectionFooterContainer>
-      <CustomButton onClick={() => addItemDisProp(item)} inverted>
+      <AddButton onClick={() => addItemDisProp(item)} inverted>
         Add to cart
-      </CustomButton>
+      </AddButton>
     </CollectionItemContainer>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addItemDisProp: (item) => dispatch(addItem(item)),
+  addItemDisProp: (item) => dispatch(addItem(item))
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);
