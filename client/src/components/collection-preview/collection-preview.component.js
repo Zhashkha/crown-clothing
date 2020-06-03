@@ -1,10 +1,10 @@
 import React from "react";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 import {
   CollectionPreviewContainer,
   TitleContainer,
-  PreviewContainer,
+  PreviewContainer
 } from "./collection-preview.styles";
 import CollectionItem from "../collection-item/collection-item.component";
 

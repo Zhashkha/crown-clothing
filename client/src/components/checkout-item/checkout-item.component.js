@@ -6,20 +6,15 @@ import {
   ImageContainer,
   TextContainer,
   QuantityContainer,
-  RemoveButtonContainer,
+  RemoveButtonContainer
 } from "./checkout-item.styles";
 import {
   addItem,
   removeItem,
-  clearItemFromCart,
+  clearItemFromCart
 } from "../../redux/cart/cart.actions";
 
-const CheckoutItem = ({
-  cartItem,
-  addItemDisProp,
-  removeItemDisProp,
-  clearItemFromCartDisProp,
-}) => {
+const CheckoutItem = ({ cartItem, addItem, removeItem, clearItemFromCart }) => {
   const { imageUrl, name, quantity, price } = cartItem;
 
   return (
@@ -29,16 +24,12 @@ const CheckoutItem = ({
       </ImageContainer>
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>
-        <div onClick={() => removeItemDisProp(cartItem)}>
-          &#10094;
-        </div>
+        <div onClick={() => removeItem(cartItem)}>&#10094;</div>
         <span>{quantity}</span>
-        <div onClick={() => addItemDisProp(cartItem)}>
-          &#10095;
-        </div>
+        <div onClick={() => addItem(cartItem)}>&#10095;</div>
       </QuantityContainer>
       <TextContainer>${price}</TextContainer>
-      <RemoveButtonContainer onClick={() => clearItemFromCartDisProp(cartItem)}>
+      <RemoveButtonContainer onClick={() => clearItemFromCart(cartItem)}>
         &#10005;
       </RemoveButtonContainer>
     </CheckoutItemContainer>
@@ -46,9 +37,9 @@ const CheckoutItem = ({
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  clearItemFromCartDisProp: (item) => dispatch(clearItemFromCart(item)),
-  addItemDisProp: (item) => dispatch(addItem(item)),
-  removeItemDisProp: (item) => dispatch(removeItem(item)),
+  clearItemFromCart: (item) => dispatch(clearItemFromCart(item)),
+  addItem: (item) => dispatch(addItem(item)),
+  removeItem: (item) => dispatch(removeItem(item))
 });
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);

@@ -4,7 +4,7 @@ const buttonStyles = css`
   background-color: black;
   color: white;
   border: none;
-  
+
   &:hover {
     background-color: white;
     color: black;
@@ -28,7 +28,7 @@ const buttonStylesGoogleSignin = css`
   background-color: #4285f4;
   color: white;
   border: none;
-  
+
   &:hover {
     background-color: #357ae8;
     border: none;
@@ -40,9 +40,7 @@ const getButtonStyle = (props) => {
     return buttonStylesGoogleSignin;
   }
 
-  return props.inverted
-    ? buttonStylesInverted
-    : buttonStyles;
+  return props.inverted ? buttonStylesInverted : buttonStyles;
 };
 
 export const CustomButtonContainer = styled.button`

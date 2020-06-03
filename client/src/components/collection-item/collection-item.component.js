@@ -11,7 +11,7 @@ import {
 import { AddButton } from "./collection-item.styles";
 import { addItem } from "../../redux/cart/cart.actions";
 
-const CollectionItem = ({ item, addItemDisProp }) => {
+const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
 
   return (
@@ -21,7 +21,7 @@ const CollectionItem = ({ item, addItemDisProp }) => {
         <NameContainer>{name}</NameContainer>
         <PriceContainer>${price}</PriceContainer>
       </CollectionFooterContainer>
-      <AddButton onClick={() => addItemDisProp(item)} inverted>
+      <AddButton onClick={() => addItem(item)} inverted>
         Add to cart
       </AddButton>
     </CollectionItemContainer>
@@ -29,7 +29,7 @@ const CollectionItem = ({ item, addItemDisProp }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addItemDisProp: (item) => dispatch(addItem(item))
+  addItem: (item) => dispatch(addItem(item))
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);

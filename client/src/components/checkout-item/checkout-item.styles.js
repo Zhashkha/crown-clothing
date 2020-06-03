@@ -40,7 +40,7 @@ export const QuantityContainer = styled(TextContainer)`
 
     @media screen and (max-width: 800px) {
       margin: 0 5px;
-    }  
+    }
   }
 `;
 

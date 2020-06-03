@@ -6,7 +6,7 @@ import {
   BackgroundImage,
   ContentContainer,
   TitleContainer,
-  SubtitleContainer,
+  SubtitleContainer
 } from "./menu-item.styles";
 
 const MenuItem = ({ title, imageUrl, size, history, match, linkUrl }) => (
@@ -15,7 +15,7 @@ const MenuItem = ({ title, imageUrl, size, history, match, linkUrl }) => (
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
     <BackgroundImage imageUrl={imageUrl} className="background-image" />
-    <ContentContainer className='content'>
+    <ContentContainer className="content">
       <TitleContainer>{title.toUpperCase()}</TitleContainer>
       <SubtitleContainer>SHOP NOW</SubtitleContainer>
     </ContentContainer>

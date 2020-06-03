@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
-import Spinner from '../../components/spinner/spinner.component'
+import Spinner from "../../components/spinner/spinner.component";
 
 const CollectionsOverviewContainer = lazy(() =>
   import("../../components/collections-overview/collections-overview.container")

@@ -7,11 +7,11 @@ import {
   CheckoutHeaderContainer,
   HeaderBlockContainer,
   TotalContainer,
-  WarningContaier,
+  WarningContaier
 } from "./checkout.styles";
 import {
   selectCartItems,
-  selectCartTotal,
+  selectCartTotal
 } from "../../redux/cart/cart.selectors";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import StripeCheckoutButton from "../../components/stripe-button/stripe-button.component";
@@ -42,7 +42,7 @@ const CheckoutPage = ({ cartItems, total }) => (
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
-  total: selectCartTotal,
+  total: selectCartTotal
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

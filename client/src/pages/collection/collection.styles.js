@@ -22,6 +22,6 @@ export const CollectionItemsContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 15px;  
+    grid-gap: 15px;
   }
 `;

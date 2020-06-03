@@ -9,7 +9,6 @@ export const CartItemContainer = styled.div`
 
 export const BackgroundImage = styled.img`
   width: 30%;
-  background-image: url(${({ imageUrl }) => imageUrl});
 `;
 
 export const ItemDetailsContainer = styled.div`

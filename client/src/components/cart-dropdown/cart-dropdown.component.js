@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import {
   CartDropdownContainer,
   CartItemsContainer,
-  EmptyMessageContainer,
+  EmptyMessageContainer
 } from "./cart-dropdown.styles";
 import CustomButton from "../custom-button/custom-button.component";
 import CartItem from "../cart-item/cart-item.component";
@@ -36,7 +36,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
+  cartItems: selectCartItems
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
