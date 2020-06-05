@@ -22,3 +22,12 @@ export const clearItemFromCart = (item) => ({
 export const clearCart = () => ({
   type: CartActionTypes.CLEAR_CART
 });
+
+export const fetchItemsOnSigninSuccess = (cartItems) => ({
+  type: CartActionTypes.FETCH_ITEMS_ON_SIGNIN_SUCCESS,
+  payload: cartItems
+});
+
+export const fetchItemsOnSigninFailure = () => ({
+  type: CartActionTypes.FETCH_ITEMS_ON_SIGNIN_FAILURE
+});

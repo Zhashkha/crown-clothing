@@ -41,6 +41,37 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+export const getCartItems = async (userId) => {
+  try {
+    const cartsRef = firestore
+      .collection(`carts`)
+      .where("userId", "==", userId);
+    const snapshot = await cartsRef.get();
+
+    return snapshot.empty ? [] : snapshot.docs[0].data().items;
+  } catch (error) {
+    console.log("error getting cart items", error.message);
+  }
+};
+
+export const updateCartItems = async (cartItems, userId) => {
+  try {
+    const cartsRef = firestore
+      .collection(`carts`)
+      .where("userId", "==", userId);
+    const snapshot = await cartsRef.get();
+
+    if (snapshot.empty) {
+      const cartRef = firestore.collection(`carts`).doc();
+      await cartRef.set({ userId, items: cartItems });
+    } else {
+      await snapshot.docs[0].ref.update({ items: cartItems });
+    }
+  } catch (error) {
+    console.log("error updating cart items", error.message);
+  }
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
