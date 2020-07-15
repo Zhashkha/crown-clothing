@@ -37,6 +37,8 @@ export const MenuItemContainer = styled.div`
   }
 `;
 
+MenuItemContainer.displayName = "MenuItemContainer";
+
 export const BackgroundImage = styled.div`
   height: 100%;
   width: 100%;

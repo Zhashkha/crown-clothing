@@ -15,7 +15,7 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { signoutStart } from "../../redux/user/user.actions";
 
-const Header = ({ currentUser, hidden, signoutStart }) => (
+export const Header = ({ currentUser, hidden, signoutStart }) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo />

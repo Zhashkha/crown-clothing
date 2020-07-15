@@ -11,7 +11,7 @@ import {
 } from "../cart/cart.actions";
 import { updateCartItems, getCartItems } from "../../firebase/firebase.utils";
 
-function* updateItemsInCart() {
+export function* updateItemsInCart() {
   try {
     const currentUser = yield select(selectCurrentUser);
     if (currentUser != null) {
@@ -23,7 +23,7 @@ function* updateItemsInCart() {
   }
 }
 
-function* getCartItemsOnSignin({ payload: currentUser }) {
+export function* getCartItemsOnSignin({ payload: currentUser }) {
   try {
     const cartItemsBeforeSignin = yield select(selectCartItems);
     if (cartItemsBeforeSignin.length > 0) {
@@ -38,11 +38,11 @@ function* getCartItemsOnSignin({ payload: currentUser }) {
   }
 }
 
-function* clearCartOnSignout() {
+export function* clearCartOnSignout() {
   yield put(clearCart());
 }
 
-function* clearCartOnPayment() {
+export function* clearCartOnPayment() {
   yield put(clearCart());
 }
 

@@ -11,7 +11,7 @@ import {
 import { AddButton } from "./collection-item.styles";
 import { addItem } from "../../redux/cart/cart.actions";
 
-const CollectionItem = ({ item, addItem }) => {
+export const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
 
   return (

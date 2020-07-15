@@ -16,7 +16,7 @@ import {
   signupFailure
 } from "./user.actions";
 
-function* getSnapshotFromUserAuth(userAuth, additionalData) {
+export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
     const userRef = yield call(
       createUserProfileDocument,
@@ -30,7 +30,7 @@ function* getSnapshotFromUserAuth(userAuth, additionalData) {
   }
 }
 
-function* signinWithGoogle() {
+export function* signinWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
@@ -39,7 +39,7 @@ function* signinWithGoogle() {
   }
 }
 
-function* signinWithEmail({ payload: { email, password } }) {
+export function* signinWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
     yield getSnapshotFromUserAuth(user);
@@ -48,7 +48,7 @@ function* signinWithEmail({ payload: { email, password } }) {
   }
 }
 
-function* isUserAuthenticated() {
+export function* isUserAuthenticated() {
   try {
     const userAuth = yield getCurrentUser();
     if (!userAuth) return;
@@ -58,7 +58,7 @@ function* isUserAuthenticated() {
   }
 }
 
-function* signout() {
+export function* signout() {
   try {
     yield auth.signOut();
     yield put(signoutSuccess());
@@ -67,7 +67,7 @@ function* signout() {
   }
 }
 
-function* signup({ payload: { email, password, displayName } }) {
+export function* signup({ payload: { email, password, displayName } }) {
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield put(signupSuccess({ user, additionalData: { displayName } }));
@@ -76,7 +76,7 @@ function* signup({ payload: { email, password, displayName } }) {
   }
 }
 
-function* signinAfterSignup({ payload: { user, additionalData } }) {
+export function* signinAfterSignup({ payload: { user, additionalData } }) {
   yield getSnapshotFromUserAuth(user, additionalData);
 }
 
